@@ -4,5 +4,27 @@
     "gulp-util": "^3.0.8",
     "request": "^2.81.0",
     "through2": "^2.0.3"
-  }
+  },
+  "name": "gulp-opencart-refresh",
+  "description": "gulp-opencart-refresh",
+  "version": "0.0.1",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dean992008/gulp-opencart-refresh.git"
+  },
+  "keywords": [
+    "gulp",
+    "opencart"
+  ],
+  "author": "Dmitry Miroshnichenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dean992008/gulp-opencart-refresh/issues"
+  },
+  "homepage": "https://github.com/dean992008/gulp-opencart-refresh#readme"
 }
