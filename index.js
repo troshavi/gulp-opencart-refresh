@@ -31,13 +31,13 @@ function refreshCache(key){
 }
 
 function opencartRefresh(setting) {
-    if (!options.url) {
+    if (!setting.url) {
         throw new gutil.PluginError('gulp-opencart-refresh', '`url` is required!');
     }
-    if (!options.login) {
+    if (!setting.login) {
         throw new gutil.PluginError('gulp-opencart-refresh', '`login` is required!');
     }
-    if (!options.password) {
+    if (!setting.password) {
         throw new gutil.PluginError('gulp-opencart-refresh', '`password` is required!');
     }
     options = setting;

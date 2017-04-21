@@ -1,1 +1,30 @@
-gulp-opencart-refresh
+# gulp-wpmanifest
+
+ Gulp Plugin for refresh OCMOD cache in OpenCart 2.3.x.
+
+
+# Install
+
+```
+npm install gulp-opencart-refresh --save-dev
+```
+or
+
+```
+yarn add gulp-opencart-refresh
+```
+# Usage
+
+```javascript
+
+const gulp = require('gulp');
+const wpmanifest = require("gulp-wpmanifest");
+
+gulp.task('ocRefresh', function(){
+	gulp.src(['./system/**/*.ocmod.xml', './catalog/view/theme/*/template/**/*.tpl'])
+		.pipe(ocRefresh({
+			url: "URL",
+			login: "LOGIN",
+			password: "PASSWORD"
+		}));
+});
