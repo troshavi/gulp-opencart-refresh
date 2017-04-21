@@ -18,7 +18,7 @@ yarn add gulp-opencart-refresh
 ```javascript
 
 const gulp = require('gulp');
-const wpmanifest = require("gulp-wpmanifest");
+const ocRefresh = require('gulp-opencart-refresh');
 
 gulp.task('ocRefresh', function(){
 	gulp.src(['./system/**/*.ocmod.xml', './catalog/view/theme/*/template/**/*.tpl'])
