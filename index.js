@@ -3,30 +3,34 @@ const through = require('through2').obj;
 const gutil = require('gulp-util');
 const getQueryParam = require('get-query-param');
 
-var options;
+let options;
 
-function getKey(){
+function getKey() {
     return new Promise((resolve, reject) => {
         var key;
-        return request({
+        request({
             url: options.url + '/admin/index.php?route=common/login',
             method: 'POST',
             form: {
                 username: options.login,
                 password: options.password
             }
-        }).on('response', (response)=>{
-            resolve(getQueryParam('token', response.headers.location));
-        });
+        })
+            .on('response', (response) => {
+                resolve(getQueryParam('token', response.headers.location));
+            });
     });
 }
 
-function refreshCache(key){
+function refreshCache(key) {
     return new Promise((resolve, reject) => {
-        request.get(options.url + '/admin/index.php?route=extension/modification/refresh&token=' + key)
-        .on('response', (response)=>{
-            resolve(true);
-        });
+        request({
+            url: options.url + '/admin/index.php?route=extension/modification/refresh&token=' + key,
+            method: 'GET'
+        })
+            .on('response', (response) => {
+                resolve(true);
+            });
     });
 }
 
@@ -43,12 +47,17 @@ function opencartRefresh(setting) {
     options = setting;
     getKey()
         .then(refreshCache)
-        .then((result)=>{
+        .then((result) => {
+            const time = new Date();
+            const now = `[${time.getHours}:${time.getMinutes}:${time.setSeconds}] `;
+            (result) ? console.log(now + 'Cache was cleared') : console.log(now + 'Something wrong');
         })
-        .catch((error)=>{
+        .catch((error) => {
             console.log(error);
         });
-    return through(function (file, encoding, callback) { });
+    return through(function (file, encoding, callback) {
+        callback(null, file);
+    });
 }
 
 module.exports = opencartRefresh;
