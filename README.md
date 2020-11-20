@@ -1,6 +1,6 @@
-# Gulp Opencart 2.3.x Refresh
+# Gulp Opencart 3.0.x Refresh
 
- Gulp Plugin for refresh OCMOD cache in OpenCart 2.3.x.
+ Gulp Plugin for refresh OCMOD cache in OpenCart 3.0.x.
 
 
 # Install
