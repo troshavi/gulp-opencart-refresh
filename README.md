@@ -20,11 +20,11 @@ yarn add gulp-opencart-refresh
 const gulp = require('gulp');
 const ocRefresh = require('gulp-opencart-refresh');
 
-gulp.task('ocRefresh', function(){
-	gulp.src(['./system/**/*.ocmod.xml', './catalog/view/theme/*/template/**/*.tpl'])
-		.pipe(ocRefresh({
-			url: "URL",
-			login: "LOGIN",
-			password: "PASSWORD"
-		}));
+gulp.task('ocRefresh', function(cb){
+    ocRefresh({
+        url: "URL",
+        login: "LOGIN",
+        password: "PASSWORD"
+    });
+    return cb();
 });
