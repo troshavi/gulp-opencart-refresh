@@ -6,13 +6,9 @@
 # Install
 
 ```
-npm install gulp-opencart-refresh --save-dev
+npm install troshavi/gulp-opencart-refresh-v3 --save-dev
 ```
-or
 
-```
-yarn add gulp-opencart-refresh
-```
 # Usage
 
 ```javascript
